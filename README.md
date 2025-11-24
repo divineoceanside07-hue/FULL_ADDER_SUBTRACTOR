@@ -37,19 +37,63 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+Full adder truth table
+| A | B | Cin | Sum | Cout |
+| - | - | --- | --- | ---- |
+| 0 | 0 | 0   | 0   | 0    |
+| 0 | 0 | 1   | 1   | 0    |
+| 0 | 1 | 0   | 1   | 0    |
+| 0 | 1 | 1   | 0   | 1    |
+| 1 | 0 | 0   | 1   | 0    |
+| 1 | 0 | 1   | 0   | 1    |
+| 1 | 1 | 0   | 0   | 1    |
+| 1 | 1 | 1   | 1   | 1    |
+subtracter truth table
+| A | B | Bin | Diff | Bout |
+| - | - | --- | ---- | ---- |
+| 0 | 0 | 0   | 0    | 0    |
+| 0 | 0 | 1   | 1    | 1    |
+| 0 | 1 | 0   | 1    | 1    |
+| 0 | 1 | 1   | 0    | 1    |
+| 1 | 0 | 0   | 1    | 0    |
+| 1 | 0 | 1   | 0    | 0    |
+| 1 | 1 | 0   | 0    | 0    |
+| 1 | 1 | 1   | 1    | 1    |
+
 
 **Procedure**
+Full Adder – Procedure (one line steps)
 
-Write the detailed procedure here
+Identify inputs and outputs → 2. Write truth table → 3. Derive Boolean expressions → 4. Simplify using K-map → 5. Draw logic diagram → 6. Implement circuit → 7. Verify outputs.
+
+Full Subtractor – Procedure (one line steps)
+
+Identify inputs and outputs → 2. Write truth table → 3. Derive Boolean expressions → 4. Simplify using K-map → 5. Draw logic diagram → 6. Implement circuit → 7. Verify outputs.
+
 
 **Program:**
+```
+module exp4(A,B,C,X,Y,Z,Sum,Carry,Diff,Bout);
+input A,B,C,X,Y,Z;
+output Sum,Carry,Diff,Bout;
+xor g1(Sum,A,B,C);
+assign Carry= (A&B)|(B&C)|(A&C);
+xor g2(Diff,X,Y,Z);
+assign Bout= (~X&Z)|(Y&Z)|(~X&Y);
+endmodule
+```
+Developed by:SRI RAM M
+Register No : 25013604
 
 /* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
 
 **RTL Schematic**
+<img width="1744" height="937" alt="Screenshot 2025-11-24 113514" src="https://github.com/user-attachments/assets/85f2eef4-e4ee-444b-9354-fbb950ad4529" />
 
 **Output Timing Waveform**
+<img width="1919" height="888" alt="Screenshot 2025-11-24 114226" src="https://github.com/user-attachments/assets/852e5174-062b-443f-bee6-1c4f97ef88bb" />
+
 
 **Result:**
 
